@@ -1,0 +1,16 @@
+ssh <user>@<raspberry pi>
+ssh-keygen -t rsa -b 4096
+mkdir -p ~/.ssh
+cat ~/.ssh/<keyname>.pub >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+
+cat <keyname>
+
+<key runterkopieren von dem Gerät>
+<login mit zertifikat testen>
+
+sudo vim /etc/ssh/sshd_config
+PasswordAuthentication no
+PubkeyAuthentication yes
+
+sudo systemctl restart ssh
