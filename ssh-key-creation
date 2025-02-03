@@ -14,3 +14,14 @@ PasswordAuthentication no
 PubkeyAuthentication yes
 
 sudo systemctl restart ssh
+
+
+Dann auf Windows:
+mkdir .ssh/
+touch .ssh/config
+
+Host myhost
+	HostName host.dns.name
+	User someuser
+	IdentityFile c:\users\...\.ssh\id_pub
+	Port 22
