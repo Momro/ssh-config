@@ -1,10 +1,15 @@
 ssh <user>@<raspberry pi>
-ssh-keygen -t rsa -b 4096
+sshKeyFilename="meinkey"
+ssh-keygen -t rsa -b 4096 -f $sshKeyFilename
 mkdir -p ~/.ssh
-cat ~/.ssh/<keyname>.pub >> ~/.ssh/authorized_keys
+cat ~/.ssh/$sshKeyFilename.pub >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 
-cat <keyname>
+# key nach windows konvertieren
+ssh-keygen -p -m PEM -f $sshKeyFilename > $sshKeyFilename-win
+
+cat $sshKeyFilename-win
+cat $sshKeyFilename
 
 <key runterkopieren von dem Gerät>
 <login mit zertifikat testen>
